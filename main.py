@@ -12,6 +12,7 @@ def getQuestionList():
     response = requests.get(url=url,headers=header).json()
     if '250' not in response['is_forbid_invite_text']:
         return response['data']
+    print(response['is_forbid_invite_text'])
 
 def postQuestionInvitees(memberID):
     '''
