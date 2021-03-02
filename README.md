@@ -30,4 +30,4 @@ on:
 
 ## Secrets参数说明
  - COOKIE：***COOKIE（知乎获取）***
- - QuestionsID:***https://www.zhihu.com/question/xxxxxx（知乎获取）***
+ - QuestionsID：***zhihu.com/question/xxxxxx（知乎获取）***
