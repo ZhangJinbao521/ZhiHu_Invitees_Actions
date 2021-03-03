@@ -37,7 +37,8 @@ if __name__=="__main__":
     COOKIE = os.environ.get('COOKIE')
     QuestionID = os.environ.get('QuestionID')
     COUNT = 0
-    members = getQuestionList()
-    for _member in members:
-        postQuestionInvitees(_member['member']['id'])
+    for i in range(10):
+        members = getQuestionList()
+        for _member in members:
+            postQuestionInvitees(_member['member']['id'])
     print("本次操作一共邀请了{}人".format(COUNT))
