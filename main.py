@@ -9,17 +9,13 @@ def getQuestionList():
         "cookie": COOKIE,
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
     }
-    response = requests.get(url=url,headers=header).json()
-    if '250' not in response['is_forbid_invite_text']:
-        return response['data']
-    else:
-        print(response['is_forbid_invite_text'])
-        return []
+    return requests.get(url=url,headers=header).json()['data']
 
 def postQuestionInvitees(memberID):
     '''
     邀请问题回答
     '''
+    global COUNT
     url = 'https://www.zhihu.com/api/v4/questions/{}/invitees'.format(QuestionID)
     header = {
         "cookie": COOKIE,
@@ -37,7 +33,7 @@ if __name__=="__main__":
     COOKIE = os.environ.get('COOKIE')
     QuestionID = os.environ.get('QuestionID')
     COUNT = 0
-    for i in range(10):
+    for i in range(20):
         members = getQuestionList()
         for _member in members:
             postQuestionInvitees(_member['member']['id'])
